@@ -5,8 +5,14 @@ import { useStateContext } from "../context";
 import { checkIfImage } from "../utils";
 
 const index = () => {
-  const { address, connect, contract, autoverse, createCarFunction, getcarData } =
-    useStateContext();
+  const {
+    address,
+    connect,
+    contract,
+    autoverse,
+    createCarFunction,
+    getcarData,
+  } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
   const [product, setproduct] = useState([]);
@@ -43,16 +49,16 @@ const index = () => {
   };
 
   //READ DATA OR GET DATA
-const fetchproduct = async () =>{
-setIsLoading(true);
-const data = await getcarData();
-setproduct(data);
-setIsLoading(false);
-};
+  const fetchproduct = async () => {
+    setIsLoading(true);
+    const data = await getcarData();
+    setproduct(data);
+    setIsLoading(false);
+  };
 
-useEffect(() => {
-  if (contract) fetchproduct();
-},   [address, contract]);
+  useEffect(() => {
+    if (contract) fetchproduct();
+  }, [address, contract]);
 
   return (
     <div>
@@ -64,42 +70,42 @@ useEffect(() => {
           <input
             type="text"
             placeholder="carTitle"
-            onChange={(e) => handleFormFieldChange(carTitle, e)}
+            onChange={(e) => handleFormFieldChange("carTitle", e)}
           />
         </div>
         <div>
           <input
             type="text"
             placeholder="description"
-            onChange={(e) => handleFormFieldChange(description, e)}
+            onChange={(e) => handleFormFieldChange("description", e)}
           />
         </div>
         <div>
           <input
             type="text"
             placeholder="category"
-            onChange={(e) => handleFormFieldChange(category, e)}
+            onChange={(e) => handleFormFieldChange("category", e)}
           />
         </div>
         <div>
           <input
             type="number"
             placeholder="price"
-            onChange={(e) => handleFormFieldChange(price, e)}
+            onChange={(e) => handleFormFieldChange("price", e)}
           />
         </div>
         <div>
           <input
             type="url"
             placeholder="images"
-            onChange={(e) => handleFormFieldChange(images, e)}
+            onChange={(e) => handleFormFieldChange("images", e)}
           />
         </div>
         <div>
           <input
             type="text"
             placeholder="carAddress"
-            onChange={(e) => handleFormFieldChange(carAddress, e)}
+            onChange={(e) => handleFormFieldChange("carAddress", e)}
           />
         </div>
         <button type="submit">submit</button>

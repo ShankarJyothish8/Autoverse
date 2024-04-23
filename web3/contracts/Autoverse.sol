@@ -215,7 +215,7 @@ contract Autoverse {
         emit ReviewLiked(productId, reviewIndex, user, review.likes);
     }
 
-    function getHigehestratedProduct() external view returns (uint256) {
+    function getHighestratedProduct() external view returns (uint256) {
         uint256 highestRating = 0;
         uint256 highestRatedProductId = 0;
 
